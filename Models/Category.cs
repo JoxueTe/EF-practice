@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.InteropServices;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace projectef.Models;
@@ -15,5 +16,9 @@ public class Category
     //[MaxLength(150)]
     public string Name {get; set;}
     public string Description {get; set;}
+
+    [JsonIgnore]
     public virtual ICollection<Task> Tasks {get; set;}
+
+    public int Weight {get; set;}
 }
