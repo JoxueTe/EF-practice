@@ -5,7 +5,7 @@ using projectef;
 var builder = WebApplication.CreateBuilder(args);
 
 //builder.Services.AddDbContext<TasksContext>(p => p.UseInMemoryDatabase("TasksDB"));
-builder.Services.AddNpgsql<TasksContext>("User ID=postgres;Password=postpassword;Host=localhost;Port=5432;Database=TaskDB;");
+builder.Services.AddNpgsql<TasksContext>(builder.Configuration.GetConnectionString("taskConnection"));
 
 var app = builder.Build();
 
